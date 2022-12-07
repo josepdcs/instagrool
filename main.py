@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-import click as click
 import sys
+
+import click as click
 from instagrapi import Client
 
 
