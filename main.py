@@ -34,7 +34,7 @@ def delete_command(username, password, size):
     medias = client.user_medias_v1(user_id, 0)
 
     if len(medias) == 0:
-        print(f'No media found.')
+        print('No media found.')
 
     i = 1
     for media in medias[-int(size):]:
@@ -63,7 +63,7 @@ def backup_command(username, password, size):
     medias = client.user_medias_v1(user_id, 0)
 
     if len(medias) == 0:
-        print(f'No media found.')
+        print('No media found.')
 
     i = 1
     for media in medias[-int(size):]:
