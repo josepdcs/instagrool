@@ -138,7 +138,6 @@ def do_login(username, password) -> (Client, int):
     return client, int(client.user_id_from_username(username))
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     commands()
 
