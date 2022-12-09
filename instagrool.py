@@ -17,7 +17,7 @@ def commands():
 
 @commands.command(name="delete")
 @click.option("--size", '-s', help='The amount of oldest media to be removed')
-@click.option("--date", '-d', help='The date before from which you want to remove media (format: '
+@click.option("--date", '-d', help='The date prior to which you want to remove media (format: '
                                    'YYYY-MM-dd). Ex. 2022-09-23')
 @click.option('--username', '-u', envvar='IG_USER', prompt="Username",
               help='Your IG username. Default value is taken from IG_USER env var.')
@@ -31,7 +31,7 @@ def delete_command(username, password, size, date):
     Examples:\n
         - Delete your last 100 posted media:\n
             python instagrool.py delete -u user -p password -s 100\n
-        - Delete posted media before 2022-01-01\n
+        - Delete posted media prior to 2022-01-01\n
             python instagrool.py delete -u user -p password -d 2022-01-01\n
     """
 
@@ -68,7 +68,7 @@ def delete_command(username, password, size, date):
 
 @commands.command(name="backup")
 @click.option("--size", '-s', help='The amount of oldest photos to be backup')
-@click.option("--date", '-d', help='The date before from which you want to do the backup (format: '
+@click.option("--date", '-d', help='The date prior to which you want to do the backup (format: '
                                    'YYYY-MM-dd). Ex. 2022-09-23')
 @click.option('--username', '-u', envvar='IG_USER', prompt="Username",
               help='Your IG username. Default value is taken from IG_USER env var.')
@@ -83,7 +83,7 @@ def backup_command(username, password, size, date, output):
     Examples:\n
         - Backup your last 100 photos:\n
             python instagrool.py backup -u user -p password -s 100\n
-        - Backup photos before 2022-01-01\n
+        - Backup photos prior to 2022-01-01\n
             python instagrool.py backup -u user -p password -d 2022-01-01\n
     """
 
