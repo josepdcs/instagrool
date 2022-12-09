@@ -44,17 +44,22 @@ def delete_command(username, password, size):
 
 
 @commands.command(name="backup")
-@click.option("--size", '-s', help='The amount of oldest photos to be removed')
+@click.option("--size", '-s', help='The amount of oldest photos to be backup')
 @click.option('--username', '-u', envvar='IG_USER', prompt="Username",
               help='Your IG username. Default value is taken from IG_USER env var.')
 @click.password_option('--password', '-p', envvar='IG_PASSWORD', confirmation_prompt=False,
                        help='Your IG password. Default value is taken from IG_PASSWORD env '
                             'var.')
-def backup_command(username, password, size):
-    """Backup your media"""
+@click.option("--output", '-o', help='The path where photos are saved')
+def backup_command(username, password, size, output):
+    """Backup your oldest photos"""
 
     if not size:
-        print("Size (with the amount of media to be back up) is mandatory.")
+        print("Size (with the amount of oldest photos to be backup) is mandatory.")
+        sys.exit(1)
+
+    if not size:
+        print("Path is mandatory.")
         sys.exit(1)
 
     client, user_id = do_login(username, password)
@@ -68,6 +73,7 @@ def backup_command(username, password, size):
     i = 1
     for media in medias[-int(size):]:
         print(f"Trying to back up [{i}]: {media}")
+        client.photo_download(int(media.pk), output)
         i += 1
 
 
