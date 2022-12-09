@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 """Instagram Tool"""
 import datetime
+import sys
 
 import click
-import sys
+
 from instagrapi import Client
 
 
@@ -23,7 +24,7 @@ def commands():
 @click.password_option('--password', '-p', envvar='IG_PASSWORD', confirmation_prompt=False,
                        help='Your IG password. Default value is taken from IG_PASSWORD env '
                             'var.')
-def delete_command(username, password, size, date, output):
+def delete_command(username, password, size, date):
     """
     Delete your oldest posted media, stories, etc.
 
