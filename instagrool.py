@@ -56,12 +56,12 @@ def delete_command(username, password, size, date):
     i = 1
     if date_before:
         for media in filter(lambda m: m.taken_at < date_before, medias):
-            print(f"Trying to back up [{i}]: {media}")
+            print(f"Trying to delete [{i}]: {media}")
             client.media_delete(media.pk)
             i += 1
     else:
         for media in medias[-int(size):]:
-            print(f"Trying to back up [{i}]: {media}")
+            print(f"Trying to delete [{i}]: {media}")
             client.media_delete(media.pk)
             i += 1
 
